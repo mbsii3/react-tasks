@@ -27,7 +27,7 @@ export default function NewTaskPage() {
                 </label>
                 <br />
                 <label htmlFor="description">Description:
-                    <input type="text" name="description" id="description" />
+                    <input type="text" name="description" id="description" value={ task.description } onChange={handleChange} />
                 </label>
                 <br />
                 <input type="submit" />
