@@ -5,3 +5,7 @@ const BASE_URL = '/api/tasks';
 export async function createTask(taskData) {
     return await sendRequest(BASE_URL, 'POST', taskData);
 }
+
+export async function getTasks() {
+    return await sendRequest(BASE_URL);
+}

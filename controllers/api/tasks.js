@@ -1,8 +1,8 @@
-const User = require('../../models/user');
 const Task = require('../../models/task');
 
 module.exports = {
-    create
+    create,
+    index
 }
 
 async function create(req, res) {
@@ -12,6 +12,15 @@ async function create(req, res) {
         console.log(newTask);
         res.json('response');
     } catch (err) {
+        res.json(400)
+    }
+}
+
+async function index(req, res) {
+    try {
+        const tasks = await Task.find({});
+        res.json(tasks)
+    }catch {
         res.json(400)
     }
 }
