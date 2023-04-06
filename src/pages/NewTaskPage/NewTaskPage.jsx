@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as tasksService from "../../utilities/tasks-service"
 
 export default function NewTaskPage() {
     const [task, setTask] = useState({
@@ -10,9 +11,10 @@ export default function NewTaskPage() {
         setTask({ ...task, [e.target.name]: e.target.value });
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        alert('clicked')
+        await tasksService.createTask(task);
+        setTask({ name: '', description: ''});
     }
 
 
